@@ -127,20 +127,15 @@
   .hero-visual{position:relative;}
   .portrait{
     position:relative;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;
-    background:linear-gradient(155deg,var(--navy) 0%,var(--navy-2) 55%,#173a82 100%);
+    background:var(--navy);
     box-shadow:var(--shadow-soft);
-    display:flex;align-items:center;justify-content:center;
   }
-  .portrait::before{
-    content:"";position:absolute;inset:0;opacity:.15;
-    background-image:radial-gradient(circle at 20% 20%, #fff 0, transparent 45%),
-                      radial-gradient(circle at 85% 75%, #fff 0, transparent 40%);
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+  .portrait::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(0,10,40,.35) 0%, rgba(0,10,40,0) 26%);
+    pointer-events:none;
   }
-  .portrait .mono{
-    font-family:'Fraunces',serif;font-style:italic;color:rgba(255,255,255,.92);
-    font-size:9rem;line-height:1;letter-spacing:-.03em;position:relative;
-  }
-  .portrait .mono-sub{position:absolute;bottom:28px;left:28px;right:28px;color:rgba(255,255,255,.78);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;}
   .float-card{
     position:absolute;bottom:-26px;left:-26px;background:#fff;border-radius:var(--radius-md);
     padding:18px 22px;box-shadow:var(--shadow-card);display:flex;align-items:center;gap:14px;
@@ -167,10 +162,10 @@
   .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;}
   .about-photo{
     aspect-ratio:1/1;border-radius:var(--radius-lg);background:var(--sand);
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+    border:1px solid var(--line);position:relative;overflow:hidden;box-shadow:var(--shadow-soft);
   }
-  .about-photo .mono{font-family:'Fraunces',serif;font-style:italic;font-size:6.5rem;color:var(--navy);opacity:.9;}
-  .about-photo::after{content:"";position:absolute;inset:14px;border:1px solid rgba(0,30,94,.15);border-radius:calc(var(--radius-lg) - 6px);}
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+  .about-photo::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.35);border-radius:calc(var(--radius-lg) - 6px);pointer-events:none;}
   .about-text p{margin-bottom:18px;font-size:1.02rem;color:var(--charcoal);}
   .about-text p.quote-line{font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;color:var(--navy);margin:26px 0;padding-left:20px;border-left:3px solid var(--navy);}
   .creds{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
@@ -365,8 +360,7 @@
       </div>
       <div class="hero-visual reveal">
         <div class="portrait">
-          <span class="mono">AO</span>
-          <div class="mono-sub">Alexandre de Oliveira · Psicoterapeuta</div>
+          <img src="images/alexandre-hero.jpg" alt="Alexandre de Oliveira, psicoterapeuta, sorrindo" loading="eager">
         </div>
         <div class="float-card">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
@@ -390,7 +384,7 @@
   <section class="section" id="sobre">
     <div class="wrap about-grid">
       <div class="about-photo reveal">
-        <span class="mono">AO</span>
+        <img src="images/alexandre-sobre.jpg" alt="Alexandre de Oliveira lendo um livro" loading="lazy">
       </div>
       <div class="about-text reveal">
         <div class="eyebrow">Quem sou eu</div>
