@@ -108,30 +108,30 @@
   .burger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:.3s;}
   .nav-cta-mobile{display:none;}
 
-  /* ---------- HERO ---------- */
-  .hero{padding:64px 0 30px;overflow:hidden;position:relative;}
-  .hero::before{
-    content:"";position:absolute;top:-120px;right:-160px;width:520px;height:520px;border-radius:50%;
-    background:radial-gradient(circle,rgba(0,30,94,.08) 0%,rgba(0,30,94,0) 70%);pointer-events:none;
+  /* ---------- HERO (dark, BetterHelp-style) ---------- */
+  .hero-dark{background:var(--navy);position:relative;overflow:hidden;padding:60px 0 0;}
+  .hero-dark::before{
+    content:"";position:absolute;top:-160px;left:-140px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.05) 0%,rgba(255,255,255,0) 70%);pointer-events:none;
   }
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;}
+  .hero-dark-top{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;padding-bottom:56px;}
   .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
   .badge{
     display:inline-flex;align-items:center;gap:6px;
-    background:#fff;border:1px solid var(--line);border-radius:100px;
-    padding:7px 14px;font-size:.76rem;font-weight:700;color:var(--navy);font-family:'Overpass',sans-serif;
-    box-shadow:var(--shadow-card);
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:100px;
+    padding:7px 14px;font-size:.76rem;font-weight:700;color:#fff;font-family:'Overpass',sans-serif;
   }
   .badge svg{width:14px;height:14px;}
-  .hero h1{font-size:clamp(2.3rem,4.4vw,3.4rem);line-height:1.1;margin-bottom:22px;}
-  .hero h1 em{font-style:italic;color:var(--navy-2);}
+  .hero-dark h1{font-size:clamp(2.3rem,4.4vw,3.4rem);line-height:1.1;margin-bottom:22px;color:#fff;}
+  .hero-dark h1 em{font-style:italic;color:#DCC383;}
+  .hero-dark .lede{color:rgba(255,255,255,.75);}
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
 
   .hero-visual{position:relative;}
   .arch-frame{
     position:relative;aspect-ratio:3/4;max-width:420px;margin:0 auto;
-    border-radius:var(--radius-arch);overflow:hidden;background:var(--navy);
-    box-shadow:var(--shadow-soft);
+    border-radius:var(--radius-arch);overflow:hidden;background:var(--navy-2);
+    box-shadow:0 30px 70px -20px rgba(0,0,0,.45);
   }
   .arch-frame img{width:100%;height:100%;object-fit:cover;object-position:center 15%;}
   .arch-frame::after{
@@ -140,8 +140,8 @@
     pointer-events:none;
   }
   .blob-deco{position:absolute;border-radius:50%;z-index:-1;}
-  .blob-1{width:150px;height:150px;background:var(--gold-soft);top:-30px;left:-30px;}
-  .blob-2{width:110px;height:110px;background:var(--sand);bottom:20px;right:-24px;}
+  .blob-1{width:150px;height:150px;background:rgba(255,255,255,.06);top:-30px;left:-30px;}
+  .blob-2{width:110px;height:110px;background:rgba(220,195,131,.16);bottom:20px;right:-24px;}
   .float-card{
     position:absolute;bottom:14px;left:-20px;background:#fff;border-radius:var(--radius-organic-b);
     padding:16px 20px;box-shadow:var(--shadow-card);display:flex;align-items:center;gap:14px;
@@ -152,26 +152,48 @@
   .float-card strong{display:block;font-size:.83rem;color:var(--navy);font-family:'Overpass',sans-serif;}
   .float-card span{font-size:.74rem;color:var(--muted);}
 
-  /* ---------- 3 PATHS ---------- */
-  .paths{padding:36px 0 70px;}
-  .paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .path-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-organic-a);
-    padding:30px 26px;text-align:left;box-shadow:var(--shadow-card);
-    transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column;gap:14px;
+  /* ---------- 3 PATHS (color-blocked, inline in hero) ---------- */
+  .paths-inline-wrap{position:relative;padding-bottom:80px;}
+  .paths-eyebrow{color:rgba(255,255,255,.62);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;font-family:'Overpass',sans-serif;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+  .paths-eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);border-radius:2px;}
+  .paths-grid-color{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .path-color{
+    border-radius:var(--radius-organic-a);padding:26px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:38px;
+    min-height:170px;transition:transform .35s var(--ease);color:#fff;
   }
-  .path-card:hover{transform:translateY(-6px);box-shadow:0 26px 48px -20px rgba(0,30,94,.25);}
-  .path-icon{width:54px;height:54px;border-radius:var(--radius-organic-b);background:var(--navy);display:flex;align-items:center;justify-content:center;}
-  .path-icon svg{width:24px;height:24px;color:#fff;}
-  .path-card h3{margin:0;}
-  .path-card p{font-size:.9rem;color:var(--muted);flex-grow:1;}
-  .path-card .path-link{font-size:.86rem;font-weight:700;color:var(--navy);font-family:'Overpass',sans-serif;display:inline-flex;align-items:center;gap:6px;}
+  .path-color:hover{transform:translateY(-6px);}
+  .path-color-a{background:var(--navy-2);}
+  .path-color-b{background:#2B2F36;}
+  .path-color-c{background:#8A6A2E;}
+  .path-color h3{color:#fff;font-size:1.1rem;margin:0 0 6px;}
+  .path-color-arrow{font-size:.85rem;color:rgba(255,255,255,.85);display:inline-flex;align-items:center;gap:6px;font-weight:600;font-family:'Overpass',sans-serif;}
 
-  /* ---------- STATS ---------- */
-  .stats{background:var(--navy);padding:56px 0;border-radius:64px 64px 0 0;margin-top:10px;}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
-  .stat-big strong{display:block;font-family:'Overpass',sans-serif;font-size:clamp(2rem,3.4vw,2.7rem);font-weight:800;color:#fff;line-height:1;}
-  .stat-big span{font-size:.8rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;display:block;margin-top:8px;}
+  .wave-divider{display:block;width:100%;height:64px;margin-bottom:-2px;position:relative;}
+  .wave-fill{fill:var(--cream);}
+
+  /* ---------- STATS (split, BetterHelp-style) ---------- */
+  .stats-split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .spark-deco{display:flex;gap:6px;margin-bottom:18px;}
+  .spark-deco span{display:block;width:2px;height:22px;background:var(--gold);border-radius:2px;transform:rotate(-18deg);}
+  .spark-deco span:nth-child(2){height:16px;transform:rotate(0deg);}
+  .spark-deco span:nth-child(3){height:26px;transform:rotate(18deg);}
+  .stats-stack{display:flex;flex-direction:column;}
+  .stat-row{display:flex;align-items:baseline;gap:18px;padding:20px 0;border-top:1px solid var(--line);}
+  .stats-stack .stat-row:first-child{border-top:none;padding-top:0;}
+  .stat-row strong{font-family:'Overpass',sans-serif;font-size:clamp(2rem,3.4vw,2.6rem);font-weight:800;color:var(--navy);line-height:1;min-width:88px;font-variant-numeric:tabular-nums;}
+  .stat-row span{font-size:.92rem;color:var(--muted);}
+
+  /* ---------- TRUST COLLAGE ---------- */
+  .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .trust-collage{position:relative;height:360px;}
+  .collage-photo{position:absolute;overflow:hidden;box-shadow:var(--shadow-soft);border:4px solid var(--sand);}
+  .collage-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .collage-1{width:220px;height:270px;top:0;left:36px;z-index:2;border-radius:var(--radius-organic-a);object-position:center 20%;}
+  .collage-2{width:140px;height:140px;top:14px;right:14px;z-index:1;border-radius:50%;}
+  .collage-3{width:170px;height:130px;bottom:0;left:0;z-index:3;border-radius:var(--radius-organic-c);}
+  .doodle{position:absolute;pointer-events:none;}
+  .doodle-1{top:-6px;right:70px;width:46px;height:46px;}
+  .doodle-2{bottom:14px;right:-14px;width:58px;height:58px;}
 
   /* ---------- GENERIC SECTION ---------- */
   .section{padding:96px 0;}
@@ -329,10 +351,12 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:1000px){
-    .hero-grid{grid-template-columns:1fr;gap:56px;}
-    .hero-visual{max-width:380px;margin:0 auto;order:-1;}
-    .paths-grid{grid-template-columns:1fr;}
-    .stats-grid{grid-template-columns:1fr 1fr;row-gap:28px;}
+    .hero-dark-top{grid-template-columns:1fr;gap:48px;padding-bottom:44px;}
+    .hero-visual{max-width:340px;margin:0 auto;order:-1;}
+    .paths-grid-color{grid-template-columns:1fr;}
+    .stats-split{grid-template-columns:1fr;gap:36px;}
+    .trust-grid{grid-template-columns:1fr;gap:44px;}
+    .trust-collage{order:-1;max-width:420px;margin:0 auto;height:320px;}
     .steps{grid-template-columns:1fr;gap:36px;}
     .about-grid{grid-template-columns:1fr;gap:40px;}
     .about-photo{max-width:320px;margin:0 auto;}
@@ -365,14 +389,19 @@
     .brand-name strong{font-size:.9rem;}
     .brand-name small{font-size:.6rem;white-space:nowrap;}
     .section{padding:64px 0;}
-    .stats{border-radius:40px 40px 0 0;}
-    .stats-grid{grid-template-columns:1fr 1fr;}
+    .paths-grid-color{gap:14px;}
+    .path-color{min-height:auto;padding:22px 20px;}
+    .trust-collage{height:280px;max-width:320px;}
+    .collage-1{width:180px;height:220px;left:10px;}
+    .collage-2{width:110px;height:110px;top:0;right:0;}
+    .collage-3{width:140px;height:110px;}
     .services-grid{grid-template-columns:1fr;}
     .test-grid{grid-template-columns:1fr;}
     .creds{grid-template-columns:1fr;}
     .final-cta{margin:0 12px;padding:50px 26px;border-radius:36px;}
     .footer-grid{grid-template-columns:1fr;gap:32px;}
-    .hero{padding:40px 0 16px;}
+    .hero-dark{padding:40px 0 0;}
+    .hero-dark-top{padding-bottom:36px;}
   }
 </style>
 </head>
@@ -405,8 +434,8 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
+  <section class="hero-dark">
+    <div class="wrap hero-dark-top">
       <div class="hero-copy reveal">
         <div class="hero-badges">
           <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>CRP 08/12126</span>
@@ -416,11 +445,11 @@
         <h1>É hora de buscar o seu <em>desenvolvimento pessoal</em>.</h1>
         <p class="lede">Acredito que o processo de autoconhecimento traz resultados extraordinários e pode mudar o status quo de qualquer indivíduo. Psicoterapia, orientação profissional e mentoria de carreira para jovens, adultos e casais.</p>
         <div class="hero-actions">
-          <a href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener" class="btn btn-primary">
+          <a href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener" class="btn btn-light">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-1.02.09-1.65-.1-.38-.12-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.44-1.08-2.75 0-1.3.68-1.94.92-2.2.24-.27.53-.33.71-.33h.5c.16 0 .38-.03.58.44.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.13.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.28-.12.55.16.27.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.2 1.37.27.13.42.11.58-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.53.72 1.79.85.27.13.44.2.5.31.07.13.07.71-.15 1.33z"/></svg>
             Agendar sessão pelo WhatsApp
           </a>
-          <a href="#sobre" class="btn btn-ghost">Conhecer o método</a>
+          <a href="#sobre" class="btn btn-ghost" style="border-color:rgba(255,255,255,.35);color:#fff;">Conhecer o método</a>
         </div>
       </div>
       <div class="hero-visual reveal">
@@ -435,43 +464,64 @@
         </div>
       </div>
     </div>
+
+    <div class="wrap paths-inline-wrap reveal">
+      <div class="paths-eyebrow">Por onde você quer começar?</div>
+      <div class="paths-grid-color">
+        <a class="path-color path-color-a" href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20tenho%20interesse%20em%20psicoterapia%20individual." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="26" height="26"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <div><h3>Psicoterapia Individual</h3><span class="path-color-arrow">Para mim →</span></div>
+        </a>
+        <a class="path-color path-color-b" href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20tenho%20interesse%20em%20terapia%20de%20casal." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="26" height="26"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <div><h3>Terapia de Casal</h3><span class="path-color-arrow">Para mim e meu parceiro(a) →</span></div>
+        </a>
+        <a class="path-color path-color-c" href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20tenho%20interesse%20em%20mentoria%20de%20carreira." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="26" height="26"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <div><h3>Mentoria de Carreira</h3><span class="path-color-arrow">Para minha carreira →</span></div>
+        </a>
+      </div>
+    </div>
+
+    <svg class="wave-divider" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+      <path class="wave-fill" d="M0,36 C240,68 480,4 720,22 C960,40 1200,64 1440,26 L1440,64 L0,64 Z"/>
+    </svg>
   </section>
 
-  <!-- 3 CAMINHOS -->
-  <section class="paths">
-    <div class="wrap">
-      <div class="paths-grid">
-        <div class="path-card reveal">
-          <div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-          <h3>Psicoterapia Individual</h3>
-          <p>Para jovens e adultos que buscam autoconhecimento e equilíbrio emocional diante de ansiedade, estresse, lutos e traumas.</p>
-          <a class="path-link" href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20tenho%20interesse%20em%20psicoterapia%20individual." target="_blank" rel="noopener">Falar sobre isso →</a>
-        </div>
-        <div class="path-card reveal">
-          <div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-          <h3>Terapia de Casal</h3>
-          <p>Um espaço de escuta para casais que enfrentam conflitos de relacionamento e querem fortalecer a comunicação entre os dois.</p>
-          <a class="path-link" href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20tenho%20interesse%20em%20terapia%20de%20casal." target="_blank" rel="noopener">Falar sobre isso →</a>
-        </div>
-        <div class="path-card reveal">
-          <div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <h3>Mentoria de Carreira</h3>
-          <p>Direcionamento estratégico para profissionais que buscam clareza, propósito e crescimento na trajetória profissional.</p>
-          <a class="path-link" href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20tenho%20interesse%20em%20mentoria%20de%20carreira." target="_blank" rel="noopener">Falar sobre isso →</a>
-        </div>
+  <!-- STATS -->
+  <section class="section">
+    <div class="wrap stats-split">
+      <div class="reveal">
+        <div class="spark-deco"><span></span><span></span><span></span></div>
+        <h2>Um acompanhamento dedicado, 100% online.</h2>
+        <p class="lede" style="margin-top:14px;">Você fala direto comigo — sem fila de atendimento e sem triagem por terceiros. Da primeira mensagem ao acompanhamento contínuo, o processo é conduzido pelo mesmo profissional do início ao fim.</p>
+      </div>
+      <div class="stats-stack reveal">
+        <div class="stat-row"><strong data-count="18">0</strong><span>Anos de experiência em Psicoterapia</span></div>
+        <div class="stat-row"><strong data-count="6">0</strong><span>Áreas de atuação profissional</span></div>
+        <div class="stat-row"><strong data-count="100" data-suffix="%">0</strong><span>Atendimento online, em todo o Brasil</span></div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats">
-    <div class="wrap stats-grid">
-      <div class="stat-big reveal"><strong data-count="18">0</strong><span>Anos de experiência</span></div>
-      <div class="stat-big reveal"><strong data-count="6">0</strong><span>Áreas de atuação</span></div>
-      <div class="stat-big reveal"><strong data-count="4">0</strong><span>Formações e especializações</span></div>
-      <div class="stat-big reveal"><strong data-count="100" data-suffix="%">0</strong><span>Atendimento online</span></div>
+  <!-- CONFIANÇA (mural de fotos) -->
+  <section class="section section-sand">
+    <div class="wrap trust-grid">
+      <div class="trust-collage reveal">
+        <svg class="doodle doodle-1" viewBox="0 0 60 60" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M10 40 L20 30 M15 20 L22 26 M28 12 L30 22"/></svg>
+        <div class="collage-photo collage-1"><img src="images/alexandre-hero.jpg" alt="Alexandre de Oliveira sorrindo" loading="lazy"></div>
+        <div class="collage-photo collage-2"><img src="images/alexandre-sobre.jpg" alt="Alexandre de Oliveira lendo um livro" loading="lazy"></div>
+        <div class="collage-photo collage-3"><img src="images/alexandre-processo.jpg" alt="Alexandre de Oliveira no consultório" loading="lazy"></div>
+        <svg class="doodle doodle-2" viewBox="0 0 60 60" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M8 30 Q 20 10, 32 30 T 56 26"/></svg>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Confiança</div>
+        <h2 style="margin-bottom:18px;">Um profissional dedicado, não uma fila de atendimento.</h2>
+        <p class="lede" style="margin-bottom:28px;">Ao agendar comigo, você conversa sempre com o mesmo psicoterapeuta — do primeiro contato ao acompanhamento de longo prazo, com CRP 08/12126 e mais de 18 anos de prática.</p>
+        <a href="https://wa.me/5541999282043?text=Ol%C3%A1%20Alexandre%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener" class="btn btn-primary">Agendar sessão pelo WhatsApp</a>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- COMO FUNCIONA -->
   <section class="section">
